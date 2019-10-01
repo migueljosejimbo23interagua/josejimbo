@@ -5,7 +5,7 @@
 
 <div class="card">
   <div class="card-header bg-primary">
-    Ingreso de categorias
+    Edicion de categorias
   </div>
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
@@ -16,9 +16,9 @@
     {!! Field::text('name',null,['label'=>'Nombre']) !!}
     {!! Form::close() !!}-->
     
-    {!! Form::open(['route'=>'categories.store','method'=>'POST']) !!}
-   {!! Field::text('name',null,['label'=>'Nombre','placeholder'=>'Ingrese el nombre']) !!}
-   {!! Field::text('description',null,['label'=>'Descripcion','placeholder'=>'Ingrese la descripción']) !!}
+    {!! Form::open(['route'=>['categories.update',$category],'method'=>'PUT']) !!}
+   {!! Field::text('name',$category->name,['label'=>'Nombre','placeholder'=>'Ingrese el nombre']) !!}
+   {!! Field::text('description',$category->description,['label'=>'Descripcion','placeholder'=>'Ingrese la descripción']) !!}
    {!! Form::submit('PROCESAR',['class'=>'btn btn-primary']) !!}
    {!! Form::close() !!}
     
@@ -27,5 +27,3 @@
 
 </div>
 @endsection
-
-
